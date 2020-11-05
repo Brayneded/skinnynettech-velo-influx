@@ -1,0 +1,3 @@
+[submodule "vcoclient"]
+	path = vcoclient
+	url = git@github.com:Brayneded/vcoclient.git

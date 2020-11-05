@@ -1,0 +1,22 @@
+version: '3'
+services:
+  influxdb:
+    container_name: influxdb_01
+    image: "influxdb:latest"
+    networks:
+      tik_net:
+    ports:
+      - 8086:8086
+
+  chronograf:
+    image: "chronograf:latest"
+    networks:
+      tik_net:
+    ports:
+      - 8888:8888
+    environment:
+      - INFLUXDB_URL=http://influxdb_01:8086
+
+networks:
+  tik_net:
+    driver: bridge
